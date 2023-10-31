@@ -7,14 +7,11 @@ public class Persona {
     protected int telefono;
     public String rol;
 
-    public Persona(String nombre, String apellido, String rut, int telefono, String rol){ //atributos de cada trabajador de la obra
+    public Persona(String nombre, String apellido, String rut, int telefono, String rol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.rut = rut;
         this.telefono = telefono;
         this.rol = rol;
-
     }
-
-
 }

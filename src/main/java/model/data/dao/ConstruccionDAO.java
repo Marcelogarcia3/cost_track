@@ -1,6 +1,5 @@
 package model.data.dao;
 
-import model.Carrera;
 import model.Empresa.Construccion;
 import org.jooq.DSLContext;
 import org.jooq.Field;
@@ -8,7 +7,6 @@ import org.jooq.Result;
 import org.jooq.Table;
 import org.jooq.impl.DSL;
 
-import javax.xml.transform.Result;
 import java.util.List;
 
 import static org.jooq.impl.DSL.name;
@@ -45,7 +43,7 @@ public class ConstruccionDAO {
     }
     public static Object[] getTipoConstruccion(DSLContext query){
         Table construccion= DSL.table("Construccion");
-        Result resultados = query.select(carrera.field("tipo-construccion")).from(construccion).fetch();
+        Result resultados = query.select(construccion.field("tipo-construccion")).from(construccion).fetch();
         if(resultados.size()==0){
             return new String[]{"Error no existen construcciones"};
         }

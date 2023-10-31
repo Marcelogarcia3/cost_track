@@ -1,12 +1,10 @@
 package model.Personas;
 
-import model.Personas.Persona;
-
 public class Administrador extends Persona {
 
 
-    public Administrador (String nombre, String apellido, String rut, int telefono){
-        super(nombre, apellido, rut, telefono,"Administrador");
+    public Administrador(String nombre, String apellido, String rut, int telefono, String rol) {
+        super(nombre, apellido, rut, telefono, rol);
     }
 
     public void setNombre(String nombre) {

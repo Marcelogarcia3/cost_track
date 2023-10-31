@@ -1,30 +1,34 @@
-package controller;
-import model.Empleado; // Asegúrate de tener una clase Empleado que represente a los empleados
-import model.data.dao.EmpleadoDAO; // Asegúrate de tener una clase EmpleadoDAO o similar
-import model.data.DBConnector;
-import model.data.DBGenerator;
-import org.jooq.DSLContext;
+package Controller;
+
+import model.Personas.Empleado;
+
+import java.sql.Time;
+import java.time.LocalTime;
 
 public class EmpleadoController {
-    public static boolean añadirEmpleado(String nombre, String apellido, String rut, String rol, int telefono, int salario, String estado) throws ClassNotFoundException {
-        DSLContext query = DBGenerator.conectarBD("TuProyecto"); // Reemplaza "TuProyecto" por el nombre de tu base de datos
-        // Verifica si ya existe un empleado con el mismo rut antes de agregarlo
-        if (!EmpleadoDAO.validarExistenciaEmpleado(query, "rut", rut)) {
-            Empleado empleado = new Empleado(nombre, apellido, rut, rol, telefono, salario, estado);
-            EmpleadoDAO.agregarEmpleado(query, empleado);
-            DBConnector.closeConnection();
-            return true;
-        } else {
-            return false; // Empleado con el mismo rut ya existe
-        }
+    private Empleado empleado;
+
+    public EmpleadoController(Empleado empleado) {
+        this.empleado = empleado;
     }
 
-    public static String[] getRoles() throws ClassNotFoundException {
-        // Si tienes una tabla de roles, puedes modificar esto para obtener los roles desde la base de datos
-        String[] roles = {"Admin", "Empleado", "Otro"};
-        return roles;
+    public void confirmarHoraLlegada() {
+        // Get the current time
+        LocalTime horaEntrada = LocalTime.now();
+
+        // Set the arrival time for the employee
+        empleado.setHoraEntrada(Time.valueOf(horaEntrada));
+
+        System.out.println("Hora de llegada confirmada: " + horaEntrada);
+    }
+
+    public void confirmarHoraSalida() {
+        // Get the current time
+        LocalTime horaSalida = LocalTime.now();
+
+        // Set the departure time for the employee
+        empleado.setHoraSalida(Time.valueOf(horaSalida));
+
+        System.out.println("Hora de salida confirmada: " + horaSalida);
     }
 }
-
-
-

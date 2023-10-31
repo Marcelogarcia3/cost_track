@@ -1,7 +1,6 @@
 package model.Personas;
 
 import java.sql.Time;
-import java.time.LocalTime;
 
 public class Empleado extends Persona {
     public String estado;
@@ -15,6 +14,22 @@ public class Empleado extends Persona {
         this.salario = salario;
         this.horaEntrada = horaEntrada;
         HoraSalida = horaSalida;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "estado='" + estado + '\'' +
+                ", salario=" + salario +
+                ", horaEntrada=" + horaEntrada +
+                ", HoraSalida=" + HoraSalida +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", rut='" + rut + '\'' +
+                ", telefono=" + telefono +
+                ", rol='" + rol + '\'' +
+                '}';
     }
 
     public String isEstado() {

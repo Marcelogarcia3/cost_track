@@ -66,5 +66,4 @@ public final class DBConnector {
         System.out.println("Conexion creada : "+conn);
         return conn;
     }
-
 }
